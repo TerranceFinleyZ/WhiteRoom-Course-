@@ -385,7 +385,11 @@ export default function Home() {
         What is the White Room?
       </p>
       <div className="mt-12 sm:mt-16 flex justify-center">
-        <video className="w-full max-w-4xl aspect-video bg-neutral-200 rounded-2xl shadow-md" controls>
+        <video
+          className="w-full max-w-4xl aspect-video bg-neutral-200 rounded-2xl shadow-md"
+          controls
+          poster="/fesxthumbnail.png"
+        >
           <source src="/WhiteRoomvideo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
