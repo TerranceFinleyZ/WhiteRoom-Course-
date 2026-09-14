@@ -118,6 +118,7 @@ const getCardStyle = (index: number, current: number, total: number) => {
 export default function Home() {
   const [current, setCurrent] = useState(2);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [showQuizPopup, setShowQuizPopup] = useState(true);
 
   const prev = useCallback(
     () => setCurrent((c) => (c === 0 ? cards.length - 1 : c - 1)),
@@ -152,6 +153,34 @@ export default function Home() {
 
   return (
     <>
+    {showQuizPopup && (
+      <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 px-4">
+        <div
+          className="relative w-full max-w-2xl overflow-hidden rounded-2xl bg-cover bg-center p-10 text-center shadow-2xl"
+          style={{ backgroundImage: "url('/persoimag.jpg')" }}
+        >
+          <button
+            type="button"
+            onClick={() => setShowQuizPopup(false)}
+            aria-label="Close"
+            className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-xl text-white transition-colors hover:bg-black/80"
+          >
+            &times;
+          </button>
+          <div className="flex min-h-[420px] flex-col items-center justify-end gap-6 pt-32">
+            <h2 className="text-3xl font-bold text-white drop-shadow-md sm:text-5xl">
+              Free Personality Quiz
+            </h2>
+            <Link
+              href="/WR-personality-quiz"
+              className="rounded-full bg-white px-8 py-4 text-lg font-semibold text-black transition-colors hover:bg-white/90"
+            >
+              Start Quiz
+            </Link>
+          </div>
+        </div>
+      </div>
+    )}
     <div
       className="relative flex min-h-screen flex-col bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/Cl.jpg')" }}
@@ -377,7 +406,7 @@ export default function Home() {
     </div>
 
     {/* Developed Personality Section */}
-    <div className="bg-white pt-4 pb-16 sm:py-16 text-center">
+    <div id="video-section" className="bg-white pt-4 pb-16 sm:py-16 text-center">
       <h2 className="text-xl sm:text-2xl font-medium md:text-3xl bg-gradient-to-r from-neutral-500 via-neutral-400 to-neutral-300 bg-clip-text text-transparent">
         &ldquo;Develop an elitist mindset.&rdquo;
       </h2>
@@ -537,6 +566,12 @@ export default function Home() {
             </svg>
           </a>
         </div>
+        <Link
+          href="/WR-personality-quiz"
+          className="cursor-pointer text-sm font-semibold text-white/85 underline underline-offset-4 transition-colors hover:text-white sm:text-base"
+        >
+          Free Personality Quiz
+        </Link>
         <p className="text-sm sm:text-base text-white/85">Email: whiteroom101mindgames@gmail.com</p>
         <p className="text-sm sm:text-base text-white/75">All Rights Reserved Built In 2026</p>
       </div>
