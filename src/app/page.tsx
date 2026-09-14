@@ -537,7 +537,7 @@ export default function Home() {
             </svg>
           </a>
         </div>
-        <p className="text-sm sm:text-base text-white/85">CS: (555) 867-2026</p>
+        <p className="text-sm sm:text-base text-white/85">Email: whiteroom101mindgames@gmail.com</p>
         <p className="text-sm sm:text-base text-white/75">All Rights Reserved Built In 2026</p>
       </div>
     </footer>
